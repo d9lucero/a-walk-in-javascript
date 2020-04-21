@@ -5,7 +5,13 @@ describe('DAY 5: Test Grouping', () => {
         let b;
 
         expect(a).toBe(undefined);
-        expect(() => b).toThrow(`b is not defined`);
+        expect(() => {if (b){
+            return b;
+        }
+        else{
+            throw 'b is not defined';
+        }
+    }).toThrow(`b is not defined`);
 
     });
 });
