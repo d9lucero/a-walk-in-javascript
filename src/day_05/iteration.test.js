@@ -4,7 +4,9 @@ describe('DAY 5: Test Iteration - While', () => {
         condition: should loop until a is less than 5
         body: post increment a on each iteration`, () => {
         let a = 0;
-
+        while (a<5){
+            a++
+        }
         expect(a).toBe(5);
 
     });
@@ -13,7 +15,9 @@ describe('DAY 5: Test Iteration - While', () => {
         condition: pre increment a 
         body: should break if a is greater than 4`, () => {
         let a = 0;
-
+        while(a<5){
+            ++a
+        }
         expect(a).toBe(5);
 
     });
@@ -27,10 +31,12 @@ describe('DAY 5: Test Iteration - for', () => {
         body: operate with a and b to make b be 11 as final result`, () => {
         let a;
         let b = 1;
-
+        for (a = 0; a < 5; a++) {
+            b+=a;
+            
+        }
         expect(a).toBe(5);
         expect(b).toBe(11);
-
     });
 
     it(`(for loop)
@@ -39,7 +45,9 @@ describe('DAY 5: Test Iteration - for', () => {
         final-expression: post increment a
         body: operate with a and b to make b a string equals to 01234`, () => {
         let b = '';
-
+        for (let a = 0; a < 5; a++) {
+            b+=a;
+        }
         expect(b).toBe('01234');
 
     });
@@ -53,7 +61,9 @@ describe('DAY 5: Test Iteration - for...in', () => {
         multiply the property value per 2`, () => {
 
         let object = { prop1: 1, prop2: 2, prop3: 3 };
-
+        for (let prop in object){
+            object[prop]*=2
+        }
         expect(object.prop1).toBe(2);
         expect(object.prop2).toBe(4);
         expect(object.prop3).toBe(6);
@@ -65,7 +75,9 @@ describe('DAY 5: Test Iteration - for...in', () => {
         add the property name to the array`, () => {
         let array = [];
         let object = { prop1: 1, prop2: 2, prop3: 3 };
-
+        for(let prop in object){
+            array.push(prop);
+        }
         expect(array.indexOf('prop1')).toBe(0);
 
     });
@@ -78,7 +90,9 @@ describe('DAY 5: Test Iteration - for...of', () => {
         add its uppercase version to string2`, () => {
         let string = 'hello';
         let string2 = '';
-
+        for (let substr of string){
+            string2+=substr.toUpperCase()
+        }
         expect(string2).toBe('HELLO');
 
     });
