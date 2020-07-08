@@ -16,7 +16,7 @@ describe('DAY 7: this keyword', () => {
         }
 
         // complete the code to pass the test
-        let a;
+        let a=new A();
 
         expect(a.b()).toBe(a.c);
         expect(a).toBeInstanceOf(A);
@@ -37,7 +37,7 @@ describe('DAY 7: this keyword', () => {
         }
 
         // complete the code to pass the test
-        let w;
+        let w=b.call(a);
 
         expect(w).toBe(a.c);
     });
@@ -63,7 +63,7 @@ describe('DAY 7: this keyword', () => {
         }
 
         // complete the code to pass the test
-        let w;
+        let w=b.call(a,1,2);
 
         expect(w).toBe(a.c);
         expect(typeof a.x).toBe('number');
@@ -90,7 +90,7 @@ describe('DAY 7: this keyword', () => {
         }
 
         // complete the code to pass the test
-        let w;
+        let w=b.apply(a,[1,2]);
 
         expect(w).toBe(a.c);
         expect(typeof a.x).toBe('number');
@@ -110,6 +110,7 @@ describe('DAY 7: this keyword', () => {
 
         let a = {
             // complete the object property to pass the test
+            b: b,
             c: [1, 2, 3]
         };
 
@@ -128,10 +129,7 @@ describe('DAY 7: this keyword', () => {
 
             this.b = function () {
                 // use lexical scope to fix this
-                return function () {
-                    return this.c;
-                };
-
+                return ()=>this.c
             };
 
             this.c = 'hi';

@@ -12,7 +12,8 @@ describe('DAY 8: classes', () => {
              * 
              * @returns {Dog}
              */
-            constructor () {
+            constructor (name='lonely dog without a name') {
+                this.name=name;
                 this.favoriteThing = `food`;
             }
 
@@ -49,13 +50,14 @@ describe('DAY 8: classes', () => {
         /**
          * @extends Mammal
          */
-        class Dog {
+        class Dog extends Mammal{
 
             /**
              * 
              * @returns {Dog}
              */
             constructor () {
+                super();
                 this.favoriteThing = `food`;
             }
 
@@ -87,14 +89,14 @@ describe('DAY 8: classes', () => {
             /**
              * @returns {string}
              */
-            static jump () {
+            jump () {
                 return `jumping`;
             }
 
             /**
              * @returns {string}
              */
-            bark () {
+            static bark () {
                 return `barking`;
             }
 
@@ -117,15 +119,20 @@ describe('DAY 8: classes', () => {
          * 
          */
         class Dog {
-
             /**
              * @returns {Dog}
              */
             constructor () {
-                this.favoriteThing = `food`;
+                this._favoriteThing = `food`;
                 this[Symbol(`dogName`)] = '';
             }
-
+            
+            get _favoriteThing(){
+                return this._favoriteThing;
+            }
+            set _favoriteThing(value){
+                this._favoriteThing=value;
+            }
             /**
              * @param {string} name
              */

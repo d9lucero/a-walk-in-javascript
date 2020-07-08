@@ -5,7 +5,7 @@ describe('DAY 6: Test Scope', () => {
 
         {
             // change the declaration statement to accomplish the task
-            let n = 5;
+            var n = 5;
         }
 
         expect(n).toBe(5);
@@ -16,7 +16,7 @@ describe('DAY 6: Test Scope', () => {
         let n = 5;
 
         (function () {
-
+            var n=4
             expect(n).toBe(4);
 
         }());
@@ -37,7 +37,7 @@ describe('DAY 6: Test Scope', () => {
 
                         (function () {
 
-                            expect(n).not.toBe(5);
+                            expect(n).toBe(5);
 
                         }());
 
